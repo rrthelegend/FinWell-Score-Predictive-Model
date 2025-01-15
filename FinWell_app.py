@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-import joblib
+import joblib as jb
+import sklearn
 from sklearn.preprocessing import MinMaxScaler
 
 # Apply custom styles
@@ -50,7 +51,7 @@ uploaded_file = st.file_uploader("Upload Validation CSV", type=["csv"])
 
 if uploaded_file is not None:
     # Load the model and uploaded data
-    model = joblib.load("optimized_random_forest_model_main.pkl")
+    model = jb.load("optimized_random_forest_model_main.pkl")
     df_val = pd.read_csv(uploaded_file)
 
     st.write("Data Preview:")
